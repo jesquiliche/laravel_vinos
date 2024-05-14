@@ -11,13 +11,15 @@ use App\MoonShine\Pages\Producto\ProductoFormPage;
 use App\MoonShine\Pages\Producto\ProductoDetailPage;
 use MoonShine\Fields\Relationships\BelongsTo; 
 use MoonShine\Decorations\Block;
+use MoonShine\Fields\File;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Number;
 use MoonShine\Fields\Text;
 use MoonShine\Fields\TextArea;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Pages\Page;
-
+use MoonShine\Fields\Image; 
+ 
 /**
  * @extends ModelResource<Producto>
  */
@@ -66,6 +68,11 @@ class ProductoResource extends ModelResource
             Block::make([
                 ID::make()->sortable(),
             ]),
+        
+            Image::make('imagen') ->allowedExtensions(['jpg', 'png', 'jpeg'])
+            ->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 120px; height: 120px;'
+            ])  , 
             BelongsTo::make('Tipo', 'tipo','nombre')->nullable(),
             BelongsTo::make('Denominación', 'denominacion','nombre')->nullable(),
             Text::make('Nombre','nombre'),

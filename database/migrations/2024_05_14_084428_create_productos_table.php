@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('maridaje'); // Corrección de 'test' a 'text'
             $table->decimal('precio', 10, 2); // Corrección de 'decimal(10,2)' a 'decimal('precio', 10, 2)'
             $table->unsignedBigInteger('tipo_id');
+            $table->string('imagen');
             $table->foreign('tipo_id')->references('id')->on('tipos'); // Corrección en las claves foráneas
             $table->unsignedBigInteger('denominacion_id');
             $table->foreign('denominacion_id')->references('id')->on('denominaciones'); // Corrección en las claves foráneas
