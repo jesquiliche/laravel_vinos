@@ -1,11 +1,5 @@
 <?php
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Denominacion;
-
 namespace App\Http\Controllers;
 
 use App\Models\Denominacion;
@@ -82,4 +76,3 @@ class DenominacionController extends Controller
         return response()->json(null, 204);
     }
 }
-

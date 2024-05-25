@@ -15,3 +15,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/tipos',[\App\Http\Controllers\TiposController::class,'index'])->name('tipos');

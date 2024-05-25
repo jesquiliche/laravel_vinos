@@ -1,26 +1,18 @@
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Denominacion;
-
 namespace App\Http\Controllers;
 
-use App\Models\Denominacion;
+use App\Models\Tipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class DenominacionController extends Controller
+class TipoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $denominaciones = Denominacion::all();
-        return response()->json($denominaciones);
+        $tipos = Tipo::all();
+        return response()->json($tipos);
     }
 
     /**
@@ -37,9 +29,9 @@ class DenominacionController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $denominacion = Denominacion::create($validator->validated());
+        $tipo = Tipo::create($validator->validated());
 
-        return response()->json($denominacion, 201);
+        return response()->json($tipo, 201);
     }
 
     /**
@@ -47,8 +39,8 @@ class DenominacionController extends Controller
      */
     public function show($id)
     {
-        $denominacion = Denominacion::findOrFail($id);
-        return response()->json($denominacion);
+        $tipo = Tipo::findOrFail($id);
+        return response()->json($tipo);
     }
 
     /**
@@ -65,10 +57,10 @@ class DenominacionController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $denominacion = Denominacion::findOrFail($id);
-        $denominacion->update($validator->validated());
+        $tipo = Tipo::findOrFail($id);
+        $tipo->update($validator->validated());
 
-        return response()->json($denominacion);
+        return response()->json($tipo);
     }
 
     /**
@@ -76,10 +68,9 @@ class DenominacionController extends Controller
      */
     public function destroy($id)
     {
-        $denominacion = Denominacion::findOrFail($id);
-        $denominacion->delete();
+        $tipo = Tipo::findOrFail($id);
+        $tipo->delete();
 
         return response()->json(null, 204);
     }
 }
-

@@ -24,6 +24,13 @@ class TipoResource extends ModelResource
 
     protected string $title = 'Tipos';
 
+    protected bool $createInModal = true; 
+ 
+    protected bool $editInModal = true; 
+ 
+    protected bool $detailInModal = true; 
+
+
     /**
      * @return list<MoonShineComponent|Field>
      */
